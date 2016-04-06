@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
@@ -6,8 +9,11 @@ namespace Smartdocs
 {
 	public class HomePage : ContentPage
 	{
+		List<WorkItemModel> result;
+
 		public HomePage ()
 		{
+
 			var stlButton = new Button { 
 				Text = "STL", 
 				BorderWidth = 2, 
@@ -73,9 +79,15 @@ namespace Smartdocs
 			};
 		}
 
-		protected override void OnAppearing ()
+		protected async override void OnAppearing ()
 		{
 			base.OnAppearing ();
+
+			result = new List<WorkItemModel> ();
+
+			result = await App.WorkManager.GetAllWorkItems();
+
+			Debug.WriteLine (result);
 		}
 	}
 }
