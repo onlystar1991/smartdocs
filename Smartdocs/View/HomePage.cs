@@ -9,12 +9,10 @@ namespace Smartdocs
 {
 	public class HomePage : ContentPage
 	{
-		List<WorkItemModel> result;
-
 		public HomePage ()
 		{
 
-			var stlButton = new Button { 
+			var StlButton = new Button { 
 				Text = "STL", 
 				BorderWidth = 2, 
 				BorderColor = Color.Red,
@@ -22,51 +20,51 @@ namespace Smartdocs
 				HeightRequest = 50,
 			};
 
-			stlButton.Clicked += async (sender, e) => {
+			StlButton.Clicked += async (sender, e) => {
 				await Navigation.PushAsync(new SmartTaskList());
 			};
 
-
-			var requestButton = new Button {
+			var RequestButton = new Button {
 				Text = "Request", 
 				BorderWidth = 2, 
 				BorderColor = Color.Red,
 				WidthRequest = 100,
-				HeightRequest = 50
+				HeightRequest = 50,
 			};
-			var settingButton = new Button { 
+			var SettingButton = new Button {
 				Text = "Setting", 
 				BorderWidth = 2, 
 				BorderColor = Color.Red,
 				WidthRequest = 100,
 				HeightRequest = 50
 			};
-			var outboxButton = new Button {
+			var OutboxButton = new Button {
 				Text = "Outbox", 
 				BorderWidth = 2, 
 				BorderColor = Color.Red,
 				WidthRequest = 100,
 				HeightRequest = 50
 			};
-
 			Title = "Home Page";
 
 			StackLayout FirstRowLayout = new StackLayout
 			{
 				Children = {
-					stlButton, requestButton
+					StlButton, RequestButton
 				},
 				Orientation = StackOrientation.Horizontal,
-				HorizontalOptions = LayoutOptions.Center
+				HorizontalOptions = LayoutOptions.Center,
+				Padding = new Thickness(5, 5, 5, 5)
 			};
 
 			StackLayout SecondRowLayout = new StackLayout
 			{ 
 				Children = {
-					settingButton, outboxButton
+					SettingButton, OutboxButton
 				},
 				Orientation = StackOrientation.Horizontal,
-				HorizontalOptions = LayoutOptions.Center
+				HorizontalOptions = LayoutOptions.Center,
+				Padding = new Thickness(5, 5, 5, 5)
 			};
 
 
@@ -83,13 +81,7 @@ namespace Smartdocs
 		{
 			base.OnAppearing ();
 
-			result = new List<WorkItemModel> ();
-
-			result = await App.WorkManager.GetAllWorkItems();
-
-			Debug.WriteLine (result);
+			App.WorkItems = await App.WorkManager.GetAllWorkItems();
 		}
 	}
 }
-
-

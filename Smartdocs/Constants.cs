@@ -10,5 +10,7 @@ namespace Smartdocs
 		public static string GET_WORKITEMS_URL = "getWorkItemDataList/json";
 		public static int SERVER_MAX_BUFF = 256000;
 		public static int SERVER_TIMEOUT = 20000;
+		public static string USER_NAME = "admin";
+		public static string PASSWORD = "admin";
 	}
 }

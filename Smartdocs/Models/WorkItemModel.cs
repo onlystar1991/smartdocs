@@ -17,6 +17,7 @@ namespace Smartdocs
 					model.DocTypeId = field.DocTypeId;
 					model.DocName = field.DocName;
 					model.DocDesc = field.DocDesc;
+
 					_docDatas.Add (model);
 				}
 			}
@@ -46,6 +47,7 @@ namespace Smartdocs
 					model.FieldName = field.FieldName;
 					model.FieldValue = field.FieldValue;
 					model.SequenceNo = field.SequenceNo;
+
 					_workFlowFields.Add (model);
 				}
 			}
