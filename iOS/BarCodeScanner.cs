@@ -19,7 +19,10 @@ namespace Smartdocs.iOS
 		{
 			var scanner = new ZXing.Mobile.MobileBarcodeScanner ();
 			var scanResult = await scanner.Scan ();
-			return scanResult;
+			if (scanResult != null)
+				return scanResult.Text;
+			else
+				return "";
 		}
 	}
 }

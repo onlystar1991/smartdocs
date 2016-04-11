@@ -38,6 +38,11 @@ namespace Smartdocs
 				WidthRequest = 100,
 				HeightRequest = 50
 			};
+
+			SettingButton.Clicked += async (sender, e) => {
+				await Navigation.PushAsync(new SettingPage());
+			};
+
 			var OutboxButton = new Button {
 				Text = "Outbox", 
 				BorderWidth = 2, 
@@ -45,6 +50,7 @@ namespace Smartdocs
 				WidthRequest = 100,
 				HeightRequest = 50
 			};
+
 			Title = "Home Page";
 
 			StackLayout FirstRowLayout = new StackLayout
@@ -66,7 +72,6 @@ namespace Smartdocs
 				HorizontalOptions = LayoutOptions.Center,
 				Padding = new Thickness(5, 5, 5, 5)
 			};
-
 
 			Content = new StackLayout {
 				Children = {

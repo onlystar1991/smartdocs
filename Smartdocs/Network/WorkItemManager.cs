@@ -8,9 +8,9 @@ namespace Smartdocs
 	{
 		HttpHandler _httpHandler;
 
-		public WorkItemManager (HttpHandler httpHandler)
+		public WorkItemManager ()
 		{
-			_httpHandler = httpHandler;
+			_httpHandler = new HttpHandler();
 		}
 
 		public Task<List<WorkItemModel>> GetAllWorkItems()

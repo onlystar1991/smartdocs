@@ -9,15 +9,19 @@ namespace Smartdocs
 	{
 		public static WorkItemManager WorkManager { get; private set; }
 		public static List<WorkItemModel> WorkItems { get; set; }
+		public static App G_App { get; set; }
+		public static WorkItemManager G_WORKITEM_MANAGER { get; set; }
 
 		public App ()
 		{
 			// The root page of your application
-			WorkManager = new WorkItemManager(new HttpHandler());
+			WorkManager = new WorkItemManager();
 			WorkItems = new List<WorkItemModel> ();
 
-			var homeNav = new NavigationPage( new HomePage() ) { Title = "Smart Docs" };
-			MainPage = homeNav;
+			LoginPage login = new LoginPage();
+			MainPage = login;
+			G_App = this;
+			G_WORKITEM_MANAGER = new WorkItemManager ();
 		}
 
 		protected override void OnStart ()

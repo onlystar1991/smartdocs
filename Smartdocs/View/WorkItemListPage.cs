@@ -31,7 +31,7 @@ namespace Smartdocs
 					label.SetBinding(Label.TextProperty, "FieldId");
 					Label fieldNameLabel = new Label();
 					fieldNameLabel.SetBinding(Label.TextProperty, "FieldName");
-					return new ViewCell{
+					return new ViewCell  {
 						View = new StackLayout
 						{
 							Padding = new Thickness(5, 5, 5, 5),

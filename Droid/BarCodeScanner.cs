@@ -20,7 +20,10 @@ namespace Smartdocs.Droid
 			var scanner = new ZXing.Mobile.MobileBarcodeScanner ();
 			var scanResult = await scanner.Scan ();
 
-			return scanResult.Text;
+			if (scanResult != null)
+				return scanResult.Text;
+			else
+				return "";
 		}
 	}
 }
