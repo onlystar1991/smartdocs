@@ -25,14 +25,15 @@ namespace Smartdocs
 			};
 
 			var RequestButton = new Button {
-				Text = "Request", 
+				Text = "Request",
 				BorderWidth = 2, 
 				BorderColor = Color.Red,
 				WidthRequest = 100,
 				HeightRequest = 50,
 			};
+
 			var SettingButton = new Button {
-				Text = "Setting", 
+				Text = "Setting",
 				BorderWidth = 2, 
 				BorderColor = Color.Red,
 				WidthRequest = 100,
@@ -44,7 +45,7 @@ namespace Smartdocs
 			};
 
 			var OutboxButton = new Button {
-				Text = "Outbox", 
+				Text = "Outbox",
 				BorderWidth = 2, 
 				BorderColor = Color.Red,
 				WidthRequest = 100,
@@ -82,11 +83,5 @@ namespace Smartdocs
 			};
 		}
 
-		protected async override void OnAppearing ()
-		{
-			base.OnAppearing ();
-
-			App.WorkItems = await App.WorkManager.GetAllWorkItems();
-		}
 	}
 }

@@ -52,9 +52,7 @@ namespace Smartdocs
 				// Initialize the scanner first so it can track the current context
 				MobileBarcodeScanner.Initialize (Application);
 				#endif
-
 				var BarCode = await DependencyService.Get<BarCodeScannerService>().ScanAsync();
-
 				DocNoEntry.Text = BarCode;
 			};
 

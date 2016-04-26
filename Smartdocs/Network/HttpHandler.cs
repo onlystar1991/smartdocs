@@ -12,17 +12,13 @@ namespace Smartdocs
 {
 	public class HttpHandler
 	{
-		HttpClient httpClient;
+		System.Net.Http.HttpClient httpClient;
 		public List<WorkItemModel> WorkItems { get; private set; }
 
 		public HttpHandler ()
 		{
-			httpClient = new HttpClient ();
-			httpClient.MaxResponseContentBufferSize = Constants.SERVER_MAX_BUFF;
-			httpClient.Timeout = new TimeSpan(Constants.SERVER_TIMEOUT);
-			var authData = string.Format ("{0}:{1}", Constants.USER_NAME, Constants.PASSWORD );
-			var authHeaderValue = "Basic " + Convert.ToBase64String (Encoding.UTF8.GetBytes (authData));
-			httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue ("Authentication", authHeaderValue);
+			httpClient = new System.Net.Http.HttpClient ();
+			httpClient.BaseAddress = new Uri (Constants.SERVER_URL);
 		}
 
 		public async Task<List<WorkItemModel>> GetAllWorkItemsAsync()
@@ -35,16 +31,41 @@ namespace Smartdocs
 				Debug.WriteLine(response);
 				if (response.IsSuccessStatusCode) {
 					var content = await response.Content.ReadAsStringAsync ();
-					Debug.WriteLine (@"				response {0}", content.ToString());
+					Debug.WriteLine (@"response {0}", content.ToString());
 				}
 			} catch (Exception ex) {
-				Debug.WriteLine (@"				ERROR {0}", ex.Message);
+				Debug.WriteLine (@"ERROR {0}", ex.Message);
 			}
 			return WorkItems;
 		}
 
+		public async Task<String> LoginAsync(string username, string password)
+		{
+			try {
+				string api = Constants.LOGIN_API + String.Format ("j_username={0}&j_password={1}", username, password);
 
+				var response = await httpClient.GetAsync(api);
+
+				var result = response.Content.ReadAsStringAsync().Result;
+
+				return result;
+			} catch(Exception ex) {
+				Debug.WriteLine (ex.ToString ());
+				return null;
+			}
+		}
+		/*
+		public async Task<JsonObject> GetAsync(string uri)
+		{
+			var httpClient = new HttpClient();
+			var response = await httpClient.GetAsync(uri);
+
+			//will throw an exception if not successful
+			response.EnsureSuccessStatusCode();
+
+			string content = await response.Content.ReadAsStringAsync();
+			return await Task.Run(() => JsonObject.Parse(content));
+		}
+		*/
 	}
 }
-
-

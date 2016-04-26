@@ -40,7 +40,6 @@
     <Compile Include="Models\LogModel.cs" />
     <Compile Include="Models\WorkItemModel.cs" />
     <Compile Include="Network\HttpHandler.cs" />
-    <Compile Include="Network\WorkItemManager.cs" />
     <Compile Include="View\HomePage.cs" />
     <Compile Include="View\SmartTaskList.cs" />
     <Compile Include="View\WorkItemListPage.cs" />
@@ -48,8 +47,10 @@
     <Compile Include="View\AddCommentPage.cs" />
     <Compile Include="View\LogsPage.cs" />
     <Compile Include="BarCodeScannerService.cs" />
-    <Compile Include="View\LoginPage.cs" />
     <Compile Include="View\SettingPage.cs" />
+    <Compile Include="View\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.1.0.6529\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.1.0.6529\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -80,11 +81,51 @@
     <None Include="packages.config" />
     <None Include="Resources\Splash-2.png" />
     <None Include="Resources\Splash-2%28640x1136%29.png" />
+    <None Include="assets\Icon-120.png" />
+    <None Include="assets\Icon-152.png" />
+    <None Include="assets\Icon-16.png" />
+    <None Include="assets\Icon-24.png" />
+    <None Include="assets\Icon-32.png" />
+    <None Include="assets\Icon-40.png" />
+    <None Include="assets\Icon-40%402x.png" />
+    <None Include="assets\Icon-60.png" />
+    <None Include="assets\Icon-60%402x.png" />
+    <None Include="assets\Icon-60%403x.png" />
+    <None Include="assets\Icon-64.png" />
+    <None Include="assets\Icon-72.png" />
+    <None Include="assets\Icon-72%402x.png" />
+    <None Include="assets\Icon-76.png" />
+    <None Include="assets\Icon-76%402x.png" />
+    <None Include="assets\Icon-Amazon.png" />
+    <None Include="assets\Icon-Small-40.png" />
+    <None Include="assets\Icon-Small-40%402x.png" />
+    <None Include="assets\Icon-Small-40%403x.png" />
+    <None Include="assets\Icon-Small-50.png" />
+    <None Include="assets\Icon-Small-50%402x.png" />
+    <None Include="assets\Icon-Small.png" />
+    <None Include="assets\Icon-Small%402x.png" />
+    <None Include="assets\Icon-Small%403x.png" />
+    <None Include="assets\Icon-hdpi.png" />
+    <None Include="assets\Icon-ldpi.png" />
+    <None Include="assets\Icon-mdpi.png" />
+    <None Include="assets\Icon-xhdpi.png" />
+    <None Include="assets\Icon-xxhdpi.png" />
+    <None Include="assets\Icon-xxxhdpi.png" />
+    <None Include="assets\Icon.png" />
+    <None Include="assets\Icon%402x.png" />
+    <None Include="assets\iTunesArtwork.png" />
+    <None Include="assets\iTunesArtwork%402x.png" />
+    <None Include="assets\upload.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Network\" />
     <Folder Include="View\" />
     <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

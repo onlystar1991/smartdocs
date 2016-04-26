@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+	xmlns:icons="clr-namespace:XLabs.Forms.Helpers;assembly=XLabs.Forms"
+	x:Class="Smartdocs.LoginPage">
+	<ContentPage.Content>
+		
+		<OnPlatform x:TypeArguments="View">
+			<OnPlatform.iOS>
+				<StackLayout VerticalOptions="FillAndExpand" Padding="30, 50, 30, 30" BackgroundColor="Aqua">
+		        	
+		        	<Entry StyleId="UserId" Text="{Binding Path=Username}" Placeholder="Username" x:Name="username" />
+		        	<Entry StyleId="PasswordId" Text="{Binding Path=Password}" Placeholder="Password" IsPassword="true" x:Name="password" />
+		        	<Grid HorizontalOptions="Center">
+		        		<Button x:Name="loginButtoniOS" Text="Login" Grid.Row="0" Grid.Column="0"/>
+		        	</Grid>
+	        	</StackLayout>
+			</OnPlatform.iOS>
+
+			<OnPlatform.Android>
+	        	<StackLayout VerticalOptions="Center" Padding="30" BackgroundColor="Aqua">
+
+					<Entry StyleId="UserId" Text="{Binding Path=Username}" Placeholder="Username" x:Name="username" />
+		        	<Entry StyleId="PasswordId" Text="{Binding Path=Password}" Placeholder="Password" IsPassword="true" x:Name="password" />
+		        	<Button x:Name="loginButtonAndroid" Text="Login" />
+	        	</StackLayout>
+			</OnPlatform.Android>
+
+			<OnPlatform.WinPhone>
+				<StackLayout VerticalOptions="Center" Padding="30" BackgroundColor="Aqua">
+					
+		        	<Entry StyleId="UserId" Text="{Binding Path=Username}" Placeholder="Username" />
+		        	<Entry StyleId="PassId" Text="{Binding Path=Password}" Placeholder="Password" IsPassword="true" />
+		        	<Button x:Name="loginButtonWinPhone" Text="Login" />
+	       		</StackLayout>
+			</OnPlatform.WinPhone>
+		</OnPlatform>
+	</ContentPage.Content>
+</ContentPage>
