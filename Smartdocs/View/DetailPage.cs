@@ -140,7 +140,7 @@ namespace Smartdocs
 			};
 
 			AddCommentButton.Clicked += (sender, e) => {
-				Navigation.PushAsync(new AddCommentPage());
+//				Navigation.PushAsync(new AddCommentPage());
 			};
 
 			grid.Children.Add (AddCommentButton, 0, 7);

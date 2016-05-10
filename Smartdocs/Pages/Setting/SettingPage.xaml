@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:Smartdocs;assembly=Smartdocs"
+	x:Class="Smartdocs.SettingPage"
+	Icon="setting24.png"
+	Title="Setting"
+	>
+	<ScrollView>
+		<StackLayout >
+			<local:MainHeader />
+			<StackLayout Style="{StaticResource MainPageStyle}" Padding="10, 10">
+				<Grid Padding="10, 10" ColumnSpacing="10" RowSpacing="10" BackgroundColor="White">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="35" />
+						<RowDefinition Height="35" />
+						<RowDefinition Height="35" />
+						<RowDefinition Height="35" />
+						<RowDefinition Height="35" />
+						<RowDefinition Height="35" />
+					</Grid.RowDefinitions>
+					<Label 
+						Text="User ID:" 
+						Grid.Row="0" 
+						Grid.Column="0" 
+						TextColor="#555555"
+						VerticalOptions="Center"
+						/>
+					<Entry
+						Grid.Row="0" 
+						Grid.Column="1"
+						/>
+					<Label 
+						Text="Password:" 
+						Grid.Row="1" 
+						Grid.Column="0" 
+						TextColor="#555555"
+						VerticalOptions="Center"
+						/>
+					<Entry
+						Grid.Row="1"
+						Grid.Column="1"
+						/>
+					<Label 
+						Text="Portal URL:" 
+						Grid.Row="2" 
+						Grid.Column="0" 
+						TextColor="#555555"
+						VerticalOptions="Center"
+						/>
+					<Entry
+						Grid.Row="2" 
+						Grid.Column="1"
+						/>
+					<Label 
+						Text="Polling FRQ:" 
+						Grid.Row="3" 
+						Grid.Column="0" 
+						TextColor="#555555"
+						VerticalOptions="Center"
+						/>
+					<Entry
+						Grid.Row="3" 
+						Grid.Column="1"
+						/>
+					<StackLayout Grid.Row="4" Grid.Column="0" Padding="0, 0, 20, 0" Grid.ColumnSpan="2" Orientation="Horizontal">
+						<StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="Center" >
+							<Label 
+								Text="Push Notification:"
+								TextColor="#555555"
+								VerticalOptions="Center"
+								/>
+						</StackLayout>
+						<StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" >
+							<Switch IsToggled="true" HorizontalOptions="End" VerticalOptions="Center" />
+						</StackLayout>
+					</StackLayout>
+					<StackLayout Grid.Row="5" Padding="0, 0, 20, 0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+						<StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="Center" >
+							<Label 
+								Text="Download Attachements:"
+								TextColor="#555555"
+								VerticalOptions="Center"
+								/>
+						</StackLayout>
+						<StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" >
+							<Switch IsToggled="false" HorizontalOptions="End" VerticalOptions="Center" />
+						</StackLayout>
+					</StackLayout>
+				</Grid>
+			</StackLayout>
+		</StackLayout>
+	</ScrollView>
+
+</ContentPage>

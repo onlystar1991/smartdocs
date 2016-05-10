@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:Smartdocs;assembly=Smartdocs"
+	x:Class="Smartdocs.OutboxPage"
+	>
+	<StackLayout>
+		<ContentView 
+			xmlns="http://xamarin.com/schemas/2014/forms" 
+			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			x:Class="Smartdocs.MainHeader"
+			VerticalOptions="Center">
+			<StackLayout 
+				Style="{ StaticResource MainHeaderBarStyle }">
+
+				<Image
+					HorizontalOptions="Start"
+					VerticalOptions="Center"
+					WidthRequest="18"
+					HeightRequest="18"
+					Source="toggle_menu24.png">
+					<Image.GestureRecognizers>
+						<TapGestureRecognizer Tapped="OnHamburgerIconTapped" />
+					</Image.GestureRecognizers>
+				</Image>
+				
+				<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+					<Label 
+						HorizontalOptions="CenterAndExpand"
+						VerticalOptions="Center"
+						FontSize="18"
+						Text="OUTBOX"
+						x:Name="HeadTitle"
+						TextColor="Black" />
+<!--					<Label 
+						HorizontalOptions="CenterAndExpand"
+						VerticalOptions="Center"
+						x:Name="HeadSubTitle"
+						Text="DOCS" 
+						TextColor="Gray" />-->
+				</StackLayout>
+
+				<Image
+					HorizontalOptions="End"
+					VerticalOptions="Center"
+					Source="search24.png"
+					WidthRequest="18"
+					HeightRequest="18"
+					/>
+
+			</StackLayout>
+		</ContentView>
+
+		<StackLayout Style="{StaticResource MainPageStyle}">
+			<Grid>
+				<StackLayout>
+					<ScrollView>
+						<Grid Padding="20" ColumnSpacing="10" >
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+
+							<!---Left Column Content -->
+							<StackLayout 
+								x:Name="InvoiceRow"
+								Grid.Column="0"
+								>
+							</StackLayout>
+						</Grid>
+					</ScrollView>
+				</StackLayout>
+			</Grid>
+		</StackLayout>
+	</StackLayout>
+</ContentPage>

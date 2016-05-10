@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Smartdocs.InvoiceItemTemplate">
+	<StackLayout Orientation="Horizontal" BackgroundColor="White" Padding="10" >
+		<StackLayout HorizontalOptions="Start">
+			<StackLayout Orientation="Horizontal">
+				<Label FontSize="13" Text="Approve:" TextColor="Gray" />
+				<Label 
+					TextColor="#2b2b2b"
+					Text="{Binding InvoiceID}"
+					FontSize="13"
+					FontAttributes="Bold" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal">
+				<Label FontSize="13" Text="from:" TextColor="Gray" />
+				<Label 
+					Text="{Binding From}"
+					TextColor="#2b2b2b"
+					FontSize="13"
+					FontAttributes="Bold" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal">
+				<Image Source="time24.png" WidthRequest="10" HeightRequest="10" />
+				<Label 
+					Text="{Binding Date}"
+					FontSize="13"
+					TextColor="Gray"
+					/>
+			</StackLayout>
+		</StackLayout>
+		<StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" >
+			<Label 
+				Text="{Binding Price}" 
+				HorizontalOptions="End" 
+				FontAttributes="Bold" 
+				FontSize="17"
+				TextColor="#0d73a2" />
+		</StackLayout>
+
+	</StackLayout>
+</ContentView>

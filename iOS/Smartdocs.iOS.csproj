@@ -25,7 +25,8 @@
     <MtouchUseSGen>true</MtouchUseSGen>
     <MtouchFastDev>true</MtouchFastDev>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Flip Golov (NV9622Q7NL)</CodesignKey>
+    <CodesignProvision>79fe3f83-c91c-4dd3-bdbb-d55432fe8f20</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>full</DebugType>
@@ -71,7 +72,9 @@
     <MtouchDebug>true</MtouchDebug>
     <MtouchUseSGen>true</MtouchUseSGen>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
-    <CodesignProvision>17f6ef45-6a74-41ef-9319-63f15db2fff0</CodesignProvision>
+    <CodesignProvision>79fe3f83-c91c-4dd3-bdbb-d55432fe8f20</CodesignProvision>
+    <IpaPackageName>
+    </IpaPackageName>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -96,6 +99,9 @@
     <Reference Include="ZXingNetMobile">
       <HintPath>..\packages\ZXing.Net.Mobile.2.0.4.46\lib\Xamarin.iOS10\ZXingNetMobile.dll</HintPath>
     </Reference>
+    <Reference Include="Calabash">
+      <HintPath>..\packages\Xamarin.TestCloud.Agent.0.16.2\lib\Xamarin.iOS10\Calabash.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Smartdocs\Smartdocs.csproj">
@@ -118,6 +124,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="BarCodeScanner.cs" />
+    <Compile Include="Renderers\CarouselLayoutRenderer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.3.5.6335\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.3.5.6335\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -131,5 +138,113 @@
     <BundleResource Include="Resources\Icon-72%402x.png" />
     <BundleResource Include="Resources\Icon-76.png" />
     <BundleResource Include="Resources\Icon-76%402x.png" />
+    <BundleResource Include="..\assets\inbox.png">
+      <Link>Resources\inbox.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\inbox%402x.png">
+      <Link>Resources\inbox%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\invoice.png">
+      <Link>Resources\invoice.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\invoices%402x.png">
+      <Link>Resources\invoices%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\jpg64.png">
+      <Link>Resources\jpg64.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\link.png">
+      <Link>Resources\link.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\maintenance.png">
+      <Link>Resources\maintenance.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\material64.png">
+      <Link>Resources\material64.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\outbox.png">
+      <Link>Resources\outbox.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\outbox%402x.png">
+      <Link>Resources\outbox%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\payment.png">
+      <Link>Resources\payment.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\pdf64.png">
+      <Link>Resources\pdf64.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\photo_library64.png">
+      <Link>Resources\photo_library64.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\price.png">
+      <Link>Resources\price.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\purchase_order.png">
+      <Link>Resources\purchase_order.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\purchase_request.png">
+      <Link>Resources\purchase_request.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\request.png">
+      <Link>Resources\request.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\requests.png">
+      <Link>Resources\requests.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\requests%402x.png">
+      <Link>Resources\requests%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\search.png">
+      <Link>Resources\search.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\setting.png">
+      <Link>Resources\setting.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\setting%402x.png">
+      <Link>Resources\setting%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\time24.png">
+      <Link>Resources\time24.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\toggle_menu.png">
+      <Link>Resources\toggle_menu.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\lines.png">
+      <Link>Resources\lines.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\logs.png">
+      <Link>Resources\logs.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\main.png">
+      <Link>Resources\main.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\pos.png">
+      <Link>Resources\pos.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\prs.png">
+      <Link>Resources\prs.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\more.png">
+      <Link>Resources\more.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\act_files.png">
+      <Link>Resources\act_files.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\act_lines.png">
+      <Link>Resources\act_lines.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\act_logs.png">
+      <Link>Resources\act_logs.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\act_main.png">
+      <Link>Resources\act_main.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\files.png">
+      <Link>Resources\files.png</Link>
+    </BundleResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Renderers\" />
   </ItemGroup>
 </Project>

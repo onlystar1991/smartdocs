@@ -79,6 +79,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BarCodeScanner.cs" />
     <Compile Include="SplashActivity.cs" />
+    <Compile Include="Renderers\CarouselLayoutRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -92,11 +93,40 @@
   <ItemGroup>
     <Folder Include="Resources\layout\" />
     <Folder Include="Resources\values\" />
+    <Folder Include="Renderers\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
     <AndroidResource Include="Resources\values\Styles.xml" />
     <AndroidResource Include="Resources\drawable\splash.png" />
+    <AndroidResource Include="Resources\drawable\inbox.png" />
+    <AndroidResource Include="Resources\drawable\invoice.png" />
+    <AndroidResource Include="Resources\drawable\jpg64.png" />
+    <AndroidResource Include="Resources\drawable\link.png" />
+    <AndroidResource Include="Resources\drawable\maintenance.png" />
+    <AndroidResource Include="Resources\drawable\material64.png" />
+    <AndroidResource Include="Resources\drawable\outbox.png" />
+    <AndroidResource Include="Resources\drawable\payment.png" />
+    <AndroidResource Include="Resources\drawable\pdf64.png" />
+    <AndroidResource Include="Resources\drawable\photo_library64.png" />
+    <AndroidResource Include="Resources\drawable\price.png" />
+    <AndroidResource Include="Resources\drawable\purchase_order.png" />
+    <AndroidResource Include="Resources\drawable\purchase_request.png" />
+    <AndroidResource Include="Resources\drawable\request.png" />
+    <AndroidResource Include="Resources\drawable\requests.png" />
+    <AndroidResource Include="Resources\drawable\search.png" />
+    <AndroidResource Include="Resources\drawable\setting.png" />
+    <AndroidResource Include="Resources\drawable\time24.png" />
+    <AndroidResource Include="Resources\drawable\toggle_menu.png" />
+    <AndroidResource Include="Resources\drawable\logs.png" />
+    <AndroidResource Include="Resources\drawable\main.png" />
+    <AndroidResource Include="Resources\drawable\pos.png" />
+    <AndroidResource Include="Resources\drawable\prs.png" />
+    <AndroidResource Include="Resources\drawable\act_files.png" />
+    <AndroidResource Include="Resources\drawable\act_lines.png" />
+    <AndroidResource Include="Resources\drawable\act_logs.png" />
+    <AndroidResource Include="Resources\drawable\act_main.png" />
+    <AndroidResource Include="Resources\drawable\files.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.3.5.6335\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.3.5.6335\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

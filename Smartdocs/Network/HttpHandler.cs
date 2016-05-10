@@ -45,27 +45,11 @@ namespace Smartdocs
 				string api = Constants.LOGIN_API + String.Format ("j_username={0}&j_password={1}", username, password);
 
 				var response = await httpClient.GetAsync(api);
-
-				var result = response.Content.ReadAsStringAsync().Result;
-
-				return result;
+				return response.StatusCode.ToString();
 			} catch(Exception ex) {
 				Debug.WriteLine (ex.ToString ());
 				return null;
 			}
 		}
-		/*
-		public async Task<JsonObject> GetAsync(string uri)
-		{
-			var httpClient = new HttpClient();
-			var response = await httpClient.GetAsync(uri);
-
-			//will throw an exception if not successful
-			response.EnsureSuccessStatusCode();
-
-			string content = await response.Content.ReadAsStringAsync();
-			return await Task.Run(() => JsonObject.Parse(content));
-		}
-		*/
 	}
 }

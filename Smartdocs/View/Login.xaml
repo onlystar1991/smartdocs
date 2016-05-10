@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Smartdocs.Login">
+	<ScrollView Style="{StaticResource LoginScrollView}">
+		<!-- MAIN CONTAINER -->
+		<Grid
+			ColumnSpacing="0" 
+			RowSpacing="0" 
+			HorizontalOptions="Fill"
+			VerticalOptions="FillAndExpand" >
+
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="100" />
+				<RowDefinition Height="100" />
+			</Grid.RowDefinitions>
+
+			<!---FIELDS CONTAINER-->
+			<Grid 
+				Padding="40, 0"
+				ColumnSpacing="0" 
+				RowSpacing="0" 
+				VerticalOptions="CenterAndExpand"
+				Grid.Row="0"
+				HeightRequest="160">
+
+				<StackLayout
+					Grid.Row="0"
+					VerticalOptions="StartAndExpand" >
+					<!---EMAIL FIELD--> 
+					<Entry
+						Placeholder="User name"
+						x:Name="username"
+						Style="{StaticResource SmartdocsLoginEntryStyle}" 
+						/>
+					<ActivityIndicator x:Name="indicator"></ActivityIndicator>
+				</StackLayout>
+
+				<!---PASSWORD FIELD-->
+				<Entry 
+					Grid.Row="1"
+					Placeholder="Password"
+					IsPassword="true"
+					x:Name="password"
+					Style="{StaticResource SmartdocsLoginEntryStyle}" 
+					VerticalOptions="StartAndExpand" />
+
+			</Grid>
+
+				
+			<!-- FOOTER -->
+			<StackLayout 
+				VerticalOptions="EndAndExpand" 
+				Padding="20"
+				Grid.Row="1" >
+
+				<Button
+					x:Name="loginButton"
+					Style="{DynamicResource PrimaryActionButtonStyle}"
+					VerticalOptions="End"
+					Text="Login" />
+			</StackLayout>
+
+		</Grid>
+	</ScrollView>
+</ContentPage>
