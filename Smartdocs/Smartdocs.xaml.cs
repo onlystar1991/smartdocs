@@ -20,10 +20,6 @@ namespace Smartdocs
 
 			WorkItems = new List<WorkItemModel> ();
 
-//			Login login = new Login();
-
-//			MainPage = new NavigationPage(new RootPage());
-//			MainPage = new NavigationPage(new DetailPage());
 			MainPage = new NavigationPage (new Login ());
 
 			G_App = this;

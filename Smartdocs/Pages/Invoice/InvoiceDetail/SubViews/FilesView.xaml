@@ -4,7 +4,30 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	x:Class="Smartdocs.FilesView"
 	BackgroundColor="#f2f9fc"
-	Padding="10, 10"
 	>
-	<Label Text=""></Label>
+	<ScrollView>
+		<Grid Padding="10" ColumnSpacing="10" >
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<StackLayout Grid.Column="0" Grid.Row="0" BackgroundColor="White" Padding="10, 20">
+				<Label HorizontalOptions="Center" Text="Monthly Invoice" TextColor="Black"></Label>
+				<Label HorizontalOptions="Center" Text="PDF" TextColor="Gray"></Label>
+				<Image HorizontalOptions="Center" WidthRequest="40" HeightRequest="40" Source="pdf64.png" />
+				<Image HorizontalOptions="Center" WidthRequest="25" HeightRequest="25" Source="download.png" />
+			</StackLayout>
+
+			<StackLayout Grid.Column="1" Grid.Row="0" BackgroundColor="White" Padding="10, 20">
+				<Label HorizontalOptions="Center" Text="Revenue Report" TextColor="Black"></Label>
+				<Label HorizontalOptions="Center" Text="JPG" TextColor="Gray"></Label>
+				<Image HorizontalOptions="Center" WidthRequest="40" HeightRequest="40" Source="jpg64.png" />
+				<Image HorizontalOptions="Center" WidthRequest="25" HeightRequest="25" Source="download.png" />
+			</StackLayout>
+		</Grid>
+	</ScrollView>
+
 </ContentView>

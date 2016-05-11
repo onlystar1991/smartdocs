@@ -4,10 +4,44 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	x:Class="Smartdocs.MainView"
 	BackgroundColor="#f2f9fc"
-	Padding="10, 10"
 	>
-	<StackLayout>
-		<StackLayout HeightRequest="5" BackgroundColor="#0d73a2"></StackLayout>
-		<StackLayout></StackLayout>
-	</StackLayout>
+	<ScrollView>
+		<Grid Padding="15, 20, 15, 50" RowSpacing="0" >
+			<Grid.RowDefinitions>
+				<RowDefinition Height="5"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="*"></RowDefinition>
+			</Grid.RowDefinitions>
+
+			<StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="#0d73a2" Grid.Row="0" HeightRequest="5"></StackLayout>
+			<StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Grid.Row="1" >
+				<StackLayout Padding="10" Orientation="Horizontal">
+					<Label Text="Vendor: " TextColor="Gray"></Label>
+					<Label Text="1000ABC Corp." TextColor="Black"></Label>
+				</StackLayout>
+				<StackLayout Padding="10" Orientation="Horizontal">
+					<Label Text="Amount: " TextColor="Gray"></Label>
+					<Label Text="$1,340.00USD" TextColor="Black"></Label>
+				</StackLayout>
+				<StackLayout Padding="10" Orientation="Horizontal">
+					<Label Text="Reference no.: " TextColor="Gray"></Label>
+					<Label Text="RFR 1235" TextColor="Black"></Label>
+				</StackLayout>
+				<StackLayout Padding="10" Orientation="Horizontal">
+					<Label Text="Date: " TextColor="Gray"></Label>
+					<Label Text="14-07-2016" TextColor="Black"></Label>
+				</StackLayout>
+				<StackLayout Padding="10" Orientation="Horizontal">
+					<Label Text="Tax Code: " TextColor="Gray"></Label>
+					<Label Text="123 324 132" TextColor="Black"></Label>
+				</StackLayout>
+			</StackLayout>
+
+			<StackLayout Orientation="Horizontal" HorizontalOptions="Fill" Grid.Row="2" VerticalOptions="EndAndExpand" Padding="25, 0, 25, 40" >
+				<Image Source="approve.png" HorizontalOptions="StartAndExpand" WidthRequest="30" HeightRequest="30"></Image>
+				<Image Source="deny.png" HorizontalOptions="CenterAndExpand" WidthRequest="30" HeightRequest="30"></Image>
+				<Button Text="Confirm" HorizontalOptions="EndAndExpand" WidthRequest="100" HeightRequest="30" BorderColor="#0d73a2" BorderWidth="1"></Button>
+			</StackLayout>
+		</Grid>
+	</ScrollView>
 </ContentView>
