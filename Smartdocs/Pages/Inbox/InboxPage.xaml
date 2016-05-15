@@ -18,10 +18,9 @@
 							</Grid.ColumnDefinitions>
 
 							<!---Left Column Content -->
-							<StackLayout 
+							<StackLayout
 								x:Name="LeftColumn"
-								Grid.Column="0"
-								>
+								Grid.Column="0">
 							</StackLayout>
 
 							<!-- Right Column Content-->
@@ -29,7 +28,6 @@
 								x:Name="RightColumn"
 								Grid.Column="1">
 							</StackLayout>
-
 						</Grid>
 					</ScrollView>
 				</StackLayout>

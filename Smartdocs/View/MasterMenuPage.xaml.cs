@@ -9,11 +9,13 @@ namespace Smartdocs
 	{
 		public ListView ListView { get { return listView; } }
 
+		List<MasterPageItem> masterPageItems;
+
 		public MasterMenuPage ()
 		{
 			InitializeComponent ();
 
-			var masterPageItems = new List<MasterPageItem> ();
+			masterPageItems = new List<MasterPageItem> ();
 			masterPageItems.Add (new MasterPageItem {
 				Title = "Inbox",
 				IconSource = "inbox.png",
@@ -34,10 +36,30 @@ namespace Smartdocs
 				IconSource = "setting.png",
 				TargetType = typeof(SmartTaskList)
 			});
-
-
 			listView.ItemsSource = masterPageItems;
+		}
 
+		private void OnItemTapped(Object sender, ItemTappedEventArgs e)
+		{
+			var selectedItem = ((ListView)sender).SelectedItem;
+			int selectedIndex = 0;
+			for (int i = 0; i < masterPageItems.Count; i++) 
+			{
+				if (((MasterPageItem)selectedItem).Title.Equals (masterPageItems [i].Title)) {
+					selectedIndex = i;
+					break;
+				}
+			}
+
+			Element current = this;
+			while (current.Parent != null ) {
+				current = current.Parent;
+				if (current.GetType().Name == "RootPage") {
+					break;
+				}
+			}
+			var master = current as MasterDetailPage;
+			((TabbedPage)master.Detail).CurrentPage = ((TabbedPage)master.Detail).Children [selectedIndex];
 		}
 	}
 }

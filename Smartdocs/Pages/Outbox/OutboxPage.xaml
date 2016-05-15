@@ -19,7 +19,7 @@
 					VerticalOptions="Center"
 					WidthRequest="18"
 					HeightRequest="18"
-					Source="toggle_menu24.png">
+					Source="toggle_menu.png">
 					<Image.GestureRecognizers>
 						<TapGestureRecognizer Tapped="OnHamburgerIconTapped" />
 					</Image.GestureRecognizers>
@@ -33,18 +33,12 @@
 						Text="OUTBOX"
 						x:Name="HeadTitle"
 						TextColor="Black" />
-<!--					<Label 
-						HorizontalOptions="CenterAndExpand"
-						VerticalOptions="Center"
-						x:Name="HeadSubTitle"
-						Text="DOCS" 
-						TextColor="Gray" />-->
 				</StackLayout>
 
 				<Image
 					HorizontalOptions="End"
 					VerticalOptions="Center"
-					Source="search24.png"
+					Source="search.png"
 					WidthRequest="18"
 					HeightRequest="18"
 					/>

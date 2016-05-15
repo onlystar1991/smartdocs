@@ -20,7 +20,6 @@ namespace Smartdocs
 		{
 			_viewModel = new TabbedPageViewModel();
 			BindingContext = _viewModel;
-
 			BackgroundColor = Color.White;
 
 			Title = "Title";

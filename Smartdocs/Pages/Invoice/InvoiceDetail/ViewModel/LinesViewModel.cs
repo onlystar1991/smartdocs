@@ -15,6 +15,14 @@ namespace Smartdocs.ViewModels
 		{
 			get { return new LinesView(); }
 		}
+
+		public string no { get; set; }
+
+		public string material { get; set; }
+
+		public string amount { get; set; }
+
+		public string quantity { get; set; }
 	}
 }
 

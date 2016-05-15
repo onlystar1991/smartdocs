@@ -45,7 +45,9 @@ namespace Smartdocs
 				string api = Constants.LOGIN_API + String.Format ("j_username={0}&j_password={1}", username, password);
 
 				var response = await httpClient.GetAsync(api);
+
 				return response.StatusCode.ToString();
+			
 			} catch(Exception ex) {
 				Debug.WriteLine (ex.ToString ());
 				return null;

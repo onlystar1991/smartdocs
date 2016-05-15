@@ -35,8 +35,6 @@ namespace Smartdocs
 
 			for (var i = 0; i < list.Count; i++) {
 				var item = new InvoiceItemTemplate();
-
-
 				item.BindingContext = list[i];
 				column.Children.Add( item );
 			}
