@@ -5,7 +5,8 @@ using System.Linq;
 using System.Reflection;
 using Xamarin.Forms;
 
-namespace Smartdocs.Custom
+
+namespace Smartdocs.Request
 {
 	public class PagerIndicatorTabs : Grid
 	{
@@ -35,10 +36,6 @@ namespace Smartdocs.Custom
 					MenuTitle = "MAIN"
 				},
 				new MenuItemMoel {
-					MenuIcon = "lines.png",
-					MenuTitle = "LINES"
-				},
-				new MenuItemMoel {
 					MenuIcon = "files.png",
 					MenuTitle = "FILES"
 				},
@@ -53,6 +50,7 @@ namespace Smartdocs.Custom
 		{
 			if (Children != null && Children.Count > 0) Children.Clear();
 			int i = 0;
+
 			foreach (var item in ItemsSource)
 			{
 				var index = Children.Count;
@@ -193,4 +191,5 @@ namespace Smartdocs.Custom
 		public string MenuTitle { get; set; }
 	}
 }
+
 

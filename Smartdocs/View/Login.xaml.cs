@@ -33,8 +33,7 @@ namespace Smartdocs
 			if (this.CheckValidate ()) {
 				indicator.IsVisible = true;
 				((Button)sender).IsEnabled = false;
-				GotoHomePage();
-				/*
+
 				var result = await App.G_HTTP_CLIENT.LoginAsync (username.Text.Trim(), password.Text.Trim());
 				Xamarin.Forms.Device.BeginInvokeOnMainThread (async () => {
 					((Button)sender).IsEnabled = true;
@@ -42,14 +41,14 @@ namespace Smartdocs
 					if (result == null) {
 						await DisplayAlert ("Error", "Can't connect server.", "Ok");
 					} else {
-						if (result.ToString().Equals("Created")) {
-//							GotoHomePage();
+						if (result.Equals("OK")) {
+							GotoHomePage();
 						} else {
 							await DisplayAlert ("Warning", "Bad credentials", "Ok");
 						}
 					}
 				});
-				*/
+
 			} else {
 				await DisplayAlert ("Warning!", "Username and password is required!", "Ok");
 			}

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 using Xamarin.Forms;
 
@@ -33,6 +34,8 @@ namespace Smartdocs
 		{
 			var column = InvoiceRow;
 
+			column.Children.Clear ();
+
 			var invoiceItemTapGestureRecognizer = new TapGestureRecognizer();
 			invoiceItemTapGestureRecognizer.Tapped += OnProductTapped;
 
@@ -45,10 +48,27 @@ namespace Smartdocs
 			}
 		}
 
-		private async void OnProductTapped(Object sender, EventArgs e){
-			
+		private async void OnProductTapped(Object sender, EventArgs e) {
 
 			await Navigation.PushAsync (new InvoiceDetailPage ());
+
+			/*
+			var data = await App.G_HTTP_CLIENT.GetAllWorkItemsAsync ();
+
+			Xamarin.Forms.Device.BeginInvokeOnMainThread (() => {
+				Navigation.PushAsync (new InvoiceDetailPage ());
+			});
+			*/
+		}
+
+		protected async override void OnAppearing () {
+			
+//			var data = await App.G_HTTP_CLIENT.GetAllWorkItemsAsync ();
+
+			Xamarin.Forms.Device.BeginInvokeOnMainThread (() => {
+				
+//				PopulateList (invoicexModels);
+			});
 		}
 	}
 }

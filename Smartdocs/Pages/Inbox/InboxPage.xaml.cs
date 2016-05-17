@@ -66,6 +66,7 @@ namespace Smartdocs
 		{
 			var selectedItem = (InboxViewModel)((InboxItemTemplate)sender).BindingContext;
 			try {
+				
 				var page = (Page)Activator.CreateInstance (selectedItem.PageType);
 
 				await Navigation.PushAsync(page);

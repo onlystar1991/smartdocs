@@ -18,33 +18,44 @@ namespace Smartdocs
 		public HttpHandler ()
 		{
 			httpClient = new System.Net.Http.HttpClient ();
-			httpClient.BaseAddress = new Uri (Constants.SERVER_URL);
 		}
 
-		public async Task<List<WorkItemModel>> GetAllWorkItemsAsync()
+		public async Task<WorkItemModel[]> GetAllWorkItemsAsync()
 		{
-			var uri = new Uri (Constants.SERVER_URL + Constants.GET_WORKITEMS_URL);
+			var url = new Uri ("http://1-dot-dummyrestapis.appspot.com/getworkitemdatalist/admin");
 
-			try {
-				var response = await httpClient.GetAsync (uri);
+			var response = await httpClient.GetAsync (url);
 
-				Debug.WriteLine(response);
-				if (response.IsSuccessStatusCode) {
-					var content = await response.Content.ReadAsStringAsync ();
-					Debug.WriteLine (@"response {0}", content.ToString());
-				}
-			} catch (Exception ex) {
-				Debug.WriteLine (@"ERROR {0}", ex.Message);
+			var content = response.Content.ReadAsStringAsync ().Result;
+
+			dynamic dynObj = JsonConvert.DeserializeObject(content);
+
+			foreach (JToken obj in dynObj) {
+				Debug.WriteLine (obj);
 			}
-			return WorkItems;
+
+			var model = JsonConvert.DeserializeObject<WorkListObject> (content);
+
+			return model.workItems;
 		}
 
 		public async Task<String> LoginAsync(string username, string password)
 		{
 			try {
-				string api = Constants.LOGIN_API + String.Format ("j_username={0}&j_password={1}", username, password);
+//				var uri = new Uri(Constants.LOGIN_SERVER + Constants.LOGIN_API);
 
-				var response = await httpClient.GetAsync(api);
+				httpClient.BaseAddress = new Uri(Constants.LOGIN_SERVER);
+
+				httpClient.DefaultRequestHeaders
+					.Accept
+					.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+				HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "rest/authentication/getToken");
+				request.Content = new StringContent("{\"userId\":\"" + username + "\",\"password\": \"" + password + "\"}",
+					Encoding.UTF8, 
+					"application/json");
+
+				var response = await httpClient.SendAsync(request);
 
 				return response.StatusCode.ToString();
 			

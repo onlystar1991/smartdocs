@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Smartdocs.NewInvoiceFiles">
+	<ScrollView>
+		<Grid Padding="10" ColumnSpacing="10" >
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<StackLayout Grid.Column="0" Grid.Row="0" BackgroundColor="White" Padding="10, 20">
+				<Label HorizontalOptions="Center" Text="Select from Photos" TextColor="Black"></Label>
+				<Label HorizontalOptions="Center" Text="" TextColor="Gray"></Label>
+				<Image HorizontalOptions="Center" WidthRequest="40" HeightRequest="40" 
+					Source="camera64.png" VerticalOptions="EndAndExpand"
+				 />
+			</StackLayout>
+
+			<StackLayout Grid.Column="1" Grid.Row="0" BackgroundColor="White" Padding="10, 20">
+				<Label HorizontalOptions="Center" Text="Take a Picture" TextColor="Black"></Label>
+				<Label HorizontalOptions="Center" Text="" TextColor="Gray"></Label>
+				<Image HorizontalOptions="Center" WidthRequest="40" 
+					HeightRequest="40" Source="photo_library64.png" 
+					VerticalOptions="EndAndExpand"
+
+				/>
+			</StackLayout>
+		</Grid>
+	</ScrollView>
+</ContentView>

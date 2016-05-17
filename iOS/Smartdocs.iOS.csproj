@@ -243,6 +243,31 @@
     <BundleResource Include="..\assets\files.png">
       <Link>Resources\files.png</Link>
     </BundleResource>
+    <BundleResource Include="..\assets\approve.png">
+      <Link>Resources\approve.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\deny.png">
+      <Link>Resources\deny.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\download.png">
+      <Link>Resources\download.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\Splash-white-320X480.png">
+      <Link>Resources\Splash-white-320X480.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\Splash-white-640X960.png">
+      <Link>Resources\Splash-white-640X960.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\Splash-white-640X1136.png">
+      <Link>Resources\Splash-white-640X1136.png</Link>
+    </BundleResource>
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="..\assets\back.png">
+      <Link>Resources\back.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\assets\camera64.png">
+      <Link>Resources\camera64.png</Link>
+    </BundleResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Renderers\" />

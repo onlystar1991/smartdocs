@@ -10,6 +10,7 @@ namespace Smartdocs
 		public RequestPage ()
 		{
 			InitializeComponent ();
+
 			List<InboxViewModel> inboxModels = new List<InboxViewModel> {
 				new InboxViewModel {
 					Title = "Payment",
@@ -30,7 +31,7 @@ namespace Smartdocs
 					Title = "Delivery",
 					Status = "Request",
 					ImageIcon = "request.png"
-				},
+				}
 			};
 			PopulateList (inboxModels);
 
@@ -41,6 +42,9 @@ namespace Smartdocs
 		{
 			var column = LeftColumn;
 
+			var itemTapped = new TapGestureRecognizer();
+			itemTapped.Tapped += OnItemTapped;
+
 			for (var i = 0; i < list.Count; i++) {
 				var item = new InboxItemTemplate();
 
@@ -50,9 +54,14 @@ namespace Smartdocs
 					column = RightColumn;
 				}
 
+				item.GestureRecognizers.Add( itemTapped );
 				item.BindingContext = list[i];
 				column.Children.Add( item );
 			}
+		}
+
+		private async void OnItemTapped (Object sender, EventArgs e) {
+			await Navigation.PushAsync (new NewInvoice ());
 		}
 	}
 }

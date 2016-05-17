@@ -3,73 +3,90 @@ using System.Collections.Generic;
 
 namespace Smartdocs
 {
+	public class AdminData 
+	{
+		public string DocumentType { get; set; }
+		public string SAPWorkItem { get; set; }
+		public string Mode { get; set; }
+	}
+
+	public class HeaderData
+	{
+		public string Nature_of_Work { get; set; }
+		public string Company_name { get; set; }
+		public string GL_Name { get; set; }
+		public string GL_Cmtmt_item { get; set; }
+		public string Plant { get; set; }
+		public string Fund_Centre_Name { get; set; }
+		public string Remarks2 { get; set; }
+		public string Other_deductions { get; set; }
+		public string Payment_Terms2 { get; set; }
+		public string Fund_Centre_No { get; set; }
+		public string Invoice_Value { get; set; }
+		public string Retention { get; set; }
+		public string Network_Activity_No { get; set; }
+		public string Vendor_Name { get; set; }
+		public string Budgeted_Amount { get; set; }
+		public string Cost_centre_Name { get; set; }
+		public string Material_Service_status { get; set; }
+		public string Advance_amount { get; set; }
+		public string Invoice_No { get; set; }
+		public string Vendor_Code { get; set; }
+		public string TDS_amount { get; set; }
+		public string WBS_Element { get; set; }
+		public string Remarks1 { get; set; }
+		public string Date { get; set; }
+		public string Company_Code { get; set; }
+		public string Agmt_Work_order_No { get; set; }
+		public string Payment_Terms3 { get; set; }
+		public string Budget_Utilized { get; set; }
+		public string Remarks3 { get; set; }
+		public string Cost_Centre_No { get; set; }
+		public string Invoice_Date { get; set; }
+		public string Project_site { get; set; }
+		public string Net_amount_to_be_paid { get; set; }
+		public string Payment_Terms1 { get; set; }
+	}
+
+	public class Log
+	{
+		public string User { get; set; }
+		public string Comments { get; set; }
+		public string Activity { get; set; }
+		public string Time { get; set; }
+		public string Date { get; set; }
+	}
+
+	public class Activity
+	{
+		public string CommentsRequired { get; set; }
+		public string ButtonText { get; set; }
+		public string ActivityName { get; set; }
+		public string Icon { get; set; }
+	}
+
+	public class Attachment
+	{
+		public string Name { get; set; }
+		public string Type { get; set; }
+		public string URL { get; set; }
+	}
+
+
 	public class WorkItemModel
 	{
-		List<DocDataModel> _docDatas;
-		public List<DocDataModel> DocDatas {
-			get { return _docDatas; }
-			set {
-				foreach (DocDataModel field in value) {
-					DocDataModel model = new DocDataModel ();
-					model.Initiator = field.Initiator;
-					model.DocDateTime = field.DocDateTime;
-					model.DocType = field.DocType;
-					model.DocTypeId = field.DocTypeId;
-					model.DocName = field.DocName;
-					model.DocDesc = field.DocDesc;
+		public string workItemId { get; set; }
+		public AdminData adminData { get; set; }
+		public HeaderData headerData { get; set; }
 
-					_docDatas.Add (model);
-				}
-			}
-		}
+		public Log[] logs { get; set; }
+		public Activity[] activities { get; set; }
+		public Attachment[] attachments { get; set; }
+	}
 
-		List<HeaderModel> _headers;
-		public List<HeaderModel> HeaderModels {
-			get { return _headers; }
-			set {
-				foreach (HeaderModel field in value) {
-					HeaderModel model = new HeaderModel ();
-					model.WorkItemId = field.WorkItemId;
-					model.Fields = field.Fields;
 
-					_headers.Add (model);
-				}
-			}
-		}
-
-		List<WorkFlowFieldModel> _workFlowFields;
-		public List<WorkFlowFieldModel> WorkFlowFields {
-			get { return _workFlowFields; }
-			set {
-				foreach (WorkFlowFieldModel field in value) {
-					WorkFlowFieldModel model = new WorkFlowFieldModel ();
-					model.FieldId = field.FieldId;
-					model.FieldName = field.FieldName;
-					model.FieldValue = field.FieldValue;
-					model.SequenceNo = field.SequenceNo;
-
-					_workFlowFields.Add (model);
-				}
-			}
-		}
-
-		List<LogModel> _logs;
-		public List<LogModel> Logs {
-			get { return _logs; }
-			set { 
-				foreach (LogModel field in value) {
-					LogModel model = new LogModel ();
-					model.DocId = field.DocId;
-					model.FlowId = field.FlowId;
-					model.WorkItemId = field.WorkItemId;
-					model.Activity = field.Activity;
-					model.Comments = field.Comments;
-					model.CurrentAgent = field.CurrentAgent;
-
-					_logs.Add (model);
-				}
-			}
-		}
+	public class WorkListObject {
+		public WorkItemModel[] workItems { get; set; }
 	}
 }
 

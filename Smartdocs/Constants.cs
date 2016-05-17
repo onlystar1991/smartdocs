@@ -8,12 +8,9 @@ namespace Smartdocs
 	{
 		public static string SERVER_URL = "http://1-dot-dummyrestapis.appspot.com/";
 		public static string GET_WORKITEMS_URL = "getWorkItemDataList";
-		public static string LOGIN_API = "getInitiateRequestCreation/json/?";
 
+		public static string LOGIN_SERVER = "http://130.211.130.79:8080/";
+		public static string LOGIN_API = "rest/authentication/getToken";
 
-		public static int SERVER_MAX_BUFF = 256000;
-		public static int SERVER_TIMEOUT = 20000;
-		public static string USER_NAME = "admin";
-		public static string PASSWORD = "admin";
 	}
 }
