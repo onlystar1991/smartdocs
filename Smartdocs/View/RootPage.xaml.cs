@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 
 namespace Smartdocs
@@ -11,7 +10,6 @@ namespace Smartdocs
 		public RootPage ()
 		{
 			InitializeComponent ();
-
 			NavigationPage.SetHasNavigationBar(this, false);
 			masterMenuPage.ListView.ItemSelected += OnItemSelected;
 		}
@@ -31,7 +29,6 @@ namespace Smartdocs
 				IsPresented = false;
 			}
 		}
-
 	}
 }
 

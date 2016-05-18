@@ -59,6 +59,10 @@ namespace Smartdocs
 				VerticalOptions = LayoutOptions.Center
 			};
 
+			var backButtonTap = new TapGestureRecognizer ();
+			backButtonTap.Tapped += OnBackButtonClicked;
+
+
 			Image backButton = new Image {
 				HorizontalOptions = LayoutOptions.Start,
 				VerticalOptions = LayoutOptions.Center,
@@ -66,6 +70,8 @@ namespace Smartdocs
 				HeightRequest = 24,
 				Source = "back.png",
 			};
+
+			backButton.GestureRecognizers.Add (backButtonTap);
 
 			StackLayout menuBarCenter = new StackLayout {
 				Orientation = StackOrientation.Horizontal,
@@ -87,7 +93,7 @@ namespace Smartdocs
 				HorizontalOptions = LayoutOptions.End,
 				VerticalOptions = LayoutOptions.Center,
 				Text = "Send",
-				WidthRequest = 18,
+				FontAttributes = FontAttributes.Bold,
 				HeightRequest = 18
 			};
 
@@ -102,6 +108,10 @@ namespace Smartdocs
 			stackLayout.Children.Add (_relativeLayout);
 			Content = stackLayout;
 			NavigationPage.SetHasNavigationBar(this, false);
+		}
+
+		async void OnBackButtonClicked(Object sender, EventArgs e) {
+			await Navigation.PopAsync ();
 		}
 
 		CarouselLayout1 CreatePagesCarousel ()

@@ -26,7 +26,7 @@
     <MtouchFastDev>true</MtouchFastDev>
     <MtouchDebug>true</MtouchDebug>
     <CodesignKey>iPhone Developer: Flip Golov (NV9622Q7NL)</CodesignKey>
-    <CodesignProvision>79fe3f83-c91c-4dd3-bdbb-d55432fe8f20</CodesignProvision>
+    <CodesignProvision>2aebb420-ff29-49c6-aefe-57a946b71234</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>full</DebugType>
@@ -41,6 +41,9 @@
     <MtouchUseSGen>true</MtouchUseSGen>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <IpaPackageName>
+    </IpaPackageName>
+    <CodesignProvision>2aebb420-ff29-49c6-aefe-57a946b71234</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -67,14 +70,15 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchFloat32>true</MtouchFloat32>
-    <CodesignKey>iPhone Developer: Flip Golov (NV9622Q7NL)</CodesignKey>
+    <CodesignKey>iPhone Distribution: SmartDocs Inc (BK6B2TG45D)</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchUseSGen>true</MtouchUseSGen>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
-    <CodesignProvision>79fe3f83-c91c-4dd3-bdbb-d55432fe8f20</CodesignProvision>
+    <CodesignProvision>0c493a96-e724-494c-8846-2542b544c3a9</CodesignProvision>
     <IpaPackageName>
     </IpaPackageName>
+    <BuildIpa>true</BuildIpa>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

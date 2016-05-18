@@ -22,7 +22,7 @@ namespace Smartdocs
 
 		public async Task<WorkItemModel[]> GetAllWorkItemsAsync()
 		{
-			var url = new Uri ("http://1-dot-dummyrestapis.appspot.com/getworkitemdatalist/admin");
+			var url = new Uri (Constants.SERVER + "getworkitemdatalist/admin");
 
 			var response = await httpClient.GetAsync (url);
 
@@ -42,10 +42,7 @@ namespace Smartdocs
 		public async Task<String> LoginAsync(string username, string password)
 		{
 			try {
-//				var uri = new Uri(Constants.LOGIN_SERVER + Constants.LOGIN_API);
-
-				httpClient.BaseAddress = new Uri(Constants.LOGIN_SERVER);
-
+				httpClient.BaseAddress = new Uri(Constants.SERVER);
 				httpClient.DefaultRequestHeaders
 					.Accept
 					.Add(new MediaTypeWithQualityHeaderValue("application/json"));

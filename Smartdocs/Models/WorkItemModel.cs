@@ -57,7 +57,7 @@ namespace Smartdocs
 		public string Date { get; set; }
 	}
 
-	public class Activity
+	public class Activity_
 	{
 		public string CommentsRequired { get; set; }
 		public string ButtonText { get; set; }
@@ -80,7 +80,7 @@ namespace Smartdocs
 		public HeaderData headerData { get; set; }
 
 		public Log[] logs { get; set; }
-		public Activity[] activities { get; set; }
+		public Activity_[] activities { get; set; }
 		public Attachment[] attachments { get; set; }
 	}
 

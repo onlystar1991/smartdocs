@@ -19,7 +19,7 @@ namespace Smartdocs
 			masterPageItems.Add (new MasterPageItem {
 				Title = "Inbox",
 				IconSource = "inbox.png",
-				TargetType = typeof(DetailPage)
+				TargetType = typeof(SmartTaskList)
 			});
 			masterPageItems.Add (new MasterPageItem {
 				Title = "Requests",

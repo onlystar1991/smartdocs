@@ -31,6 +31,11 @@ namespace Smartdocs
 					Title = "Delivery",
 					Status = "Request",
 					ImageIcon = "request.png"
+				},
+				new InboxViewModel {
+					Title = "Proof of Delivery",
+					Status = "Request",
+					ImageIcon = "request.png"
 				}
 			};
 			PopulateList (inboxModels);
@@ -61,7 +66,15 @@ namespace Smartdocs
 		}
 
 		private async void OnItemTapped (Object sender, EventArgs e) {
-			await Navigation.PushAsync (new NewInvoice ());
+
+			var selectedItem = (InboxViewModel)((InboxItemTemplate)sender).BindingContext;
+
+			if (selectedItem.Title.Equals ("Proof of Delivery")) {
+				await Navigation.PushAsync (new ProofOfDeliveryPage ());
+			} else {
+				await Navigation.PushAsync (new NewInvoice ());
+			}
+
 		}
 	}
 }

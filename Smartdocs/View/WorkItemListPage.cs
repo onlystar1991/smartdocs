@@ -59,7 +59,7 @@ namespace Smartdocs
 			};
 
 			listView.ItemSelected += (sender, e) => {
-				Navigation.PushAsync(new DetailPage());
+//				Navigation.PushAsync(new DetailPage());
 			};
 		}
 	}
