@@ -12,14 +12,13 @@ namespace Smartdocs
 			InitializeComponent ();
 			NavigationPage.SetHasNavigationBar(this, false);
 			masterMenuPage.ListView.ItemSelected += OnItemSelected;
+
+			App.G_ROOT_PAGE = this;
 		}
 
-		protected async override void OnAppearing()
+		protected override void OnAppearing()
 		{
 			base.OnAppearing ();
-			if (!App.G_IS_LOGGEDIN) {
-				await Navigation.PushModalAsync (new NavigationPage (new Login ()));
-			}
 		}
 
 		void OnItemSelected(object sender, SelectedItemChangedEventArgs e) 

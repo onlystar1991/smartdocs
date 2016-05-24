@@ -36,17 +36,32 @@ namespace Smartdocs
 				IconSource = "setting.png",
 				TargetType = typeof(SmartTaskList)
 			});
+
+			masterPageItems.Add (new MasterPageItem {
+				Title = "Log out",
+				IconSource = "bac.png",
+				TargetType = typeof(SmartTaskList)
+			});
+
 			listView.ItemsSource = masterPageItems;
 		}
 
-		private void OnItemTapped(Object sender, ItemTappedEventArgs e)
+		async private void OnItemTapped(Object sender, ItemTappedEventArgs e)
 		{
 			var selectedItem = ((ListView)sender).SelectedItem;
 			int selectedIndex = 0;
 			for (int i = 0; i < masterPageItems.Count; i++) 
 			{
-				if (((MasterPageItem)selectedItem).Title.Equals (masterPageItems [i].Title)) {
+				string title = ((MasterPageItem)selectedItem).Title;
+				if (title.Equals (masterPageItems [i].Title)) {
 					selectedIndex = i;
+					break;
+				} else if (title.Equals ("Log out")) {
+
+					Application.Current.Properties["LoggedIn"] = "false";
+					Page page = ((NavigationPage)Xamarin.Forms.Application.Current.MainPage).CurrentPage;
+					page.Navigation.InsertPageBefore (new Login (), page);
+					await page.Navigation.PopAsync ();
 					break;
 				}
 			}

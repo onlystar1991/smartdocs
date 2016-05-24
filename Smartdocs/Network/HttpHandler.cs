@@ -24,6 +24,8 @@ namespace Smartdocs
 		{
 			var url = new Uri (Constants.SERVER + "getworkitemdatalist/admin");
 
+			httpClient.DefaultRequestHeaders.Add ("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NjQ3MTMxNTAsInN1YiI6InNlY3VyZXJlc3RhcGkiLCJpc3MiOiJzbWFydGRvY3MtbXl0cmFoIiwiaWF0IjoxNDYzNTAzNTUwfQ.UOoLQ2wEYDKJEcoh8insw0DgxloR8BGqqj3jRbWkQAg");
+
 			var response = await httpClient.GetAsync (url);
 
 			var content = response.Content.ReadAsStringAsync ().Result;

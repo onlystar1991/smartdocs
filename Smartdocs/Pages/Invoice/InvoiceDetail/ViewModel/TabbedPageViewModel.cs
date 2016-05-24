@@ -13,7 +13,8 @@ namespace Smartdocs.ViewModels
 				new MainViewModel(),
 				new LinesViewModel(),
 				new FileViewModel(),
-				new LogsViewModel()
+				new LogsViewModel(),
+				new SignatureModel()
 			};
 		}
 

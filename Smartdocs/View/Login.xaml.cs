@@ -30,7 +30,7 @@ namespace Smartdocs
 		}
 
 		async void OnLoginButtonClicked(object sender, EventArgs args) {
-			if (this.CheckValidate ()) {
+			if (CheckValidate ()) {
 				indicator.IsVisible = true;
 				((Button)sender).IsEnabled = false;
 
@@ -63,7 +63,7 @@ namespace Smartdocs
 		}
 
 		async void GotoHomePage() {
-			App.G_IS_LOGGEDIN = true;
+			Application.Current.Properties["LoggedIn"] = "true";
 			Navigation.InsertPageBefore (new RootPage (), this);
 			await Navigation.PopAsync ();
 		}

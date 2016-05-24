@@ -37,6 +37,7 @@
 				<Setter Property="FontSize" Value="{StaticResource BaseFontSize}" />
 				<Setter Property="BorderRadius" Value="22" />
 				<Setter Property="HeightRequest" Value="{StaticResource BaseButtonHeight}"/>
+				<Setter Property="TextColor" Value="White" />
 			</Style>
 
 			<!-- LOGINS STYLES -->

@@ -45,6 +45,10 @@ namespace Smartdocs.Custom
 				new MenuItemMoel {
 					MenuIcon = "logs.png",
 					MenuTitle = "LOG"
+				},
+				new MenuItemMoel {
+					MenuIcon = "main.png",
+					MenuTitle = "SIGN"
 				}
 			};
 		}
@@ -61,7 +65,7 @@ namespace Smartdocs.Custom
 					Orientation = StackOrientation.Horizontal,
 					HorizontalOptions = LayoutOptions.FillAndExpand,
 					VerticalOptions = LayoutOptions.FillAndExpand,
-					Padding = new Thickness(7)
+					Padding = new Thickness(0, 2, 0, 5)
 				};
 
 				Device.OnPlatform(
@@ -72,13 +76,11 @@ namespace Smartdocs.Custom
 							HeightRequest = 20,
 							VerticalOptions = LayoutOptions.End
 						});
-						tab.Children.Add(new Label 
+						tab.Children.Add(new Label
 							{ 
 								Text = subMenus[i].MenuTitle,
 								FontSize = 13, 
-								HorizontalOptions = LayoutOptions.End,
 								VerticalOptions = LayoutOptions.End,
-								XAlign = TextAlignment.End
 							});
 					},
 					Android: () =>
