@@ -17,23 +17,23 @@
 			<StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Grid.Row="1" >
 				<StackLayout Padding="10" Orientation="Horizontal">
 					<Label Text="Vendor: " TextColor="Gray"></Label>
-					<Label Text="1000ABC Corp." TextColor="Black"></Label>
+					<Label x:Name="VendorLabel" Text="1000ABC Corp." TextColor="Black"></Label>
 				</StackLayout>
 				<StackLayout Padding="10" Orientation="Horizontal">
 					<Label Text="Amount: " TextColor="Gray"></Label>
-					<Label Text="$1,340.00USD" TextColor="Black"></Label>
+					<Label x:Name="BudgetLabel" Text="$1,340.00USD" TextColor="Black"></Label>
 				</StackLayout>
 				<StackLayout Padding="10" Orientation="Horizontal">
 					<Label Text="Reference no.: " TextColor="Gray"></Label>
-					<Label Text="RFR 1235" TextColor="Black"></Label>
+					<Label x:Name="ReferenceLabel" Text="RFR 1235" TextColor="Black"></Label>
 				</StackLayout>
 				<StackLayout Padding="10" Orientation="Horizontal">
 					<Label Text="Date: " TextColor="Gray"></Label>
-					<Label Text="14-07-2016" TextColor="Black"></Label>
+					<Label x:Name="DateLabel" Text="14-07-2016" TextColor="Black"></Label>
 				</StackLayout>
 				<StackLayout Padding="10" Orientation="Horizontal">
 					<Label Text="Tax Code: " TextColor="Gray"></Label>
-					<Label Text="123 324 132" TextColor="Black"></Label>
+					<Label x:Name="TaxLabel" Text="123 324 132" TextColor="Black"></Label>
 				</StackLayout>
 			</StackLayout>
 

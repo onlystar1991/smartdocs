@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 
 using Xamarin.Forms;
+using Smartdocs.Models;
 
 namespace Smartdocs
 {
@@ -11,33 +13,16 @@ namespace Smartdocs
 		public InvoicePage ()
 		{
 			InitializeComponent ();
-			List<InvoiceModel> invoicexModels = new List<InvoiceModel> {
-				new InvoiceModel {
-					InvoiceID = "Invoice1234",
-					From = "ABC Corperation",
-					Price = "$1340.00",
-					Date = "8 PM 08/09/2016"
-				},
-				new InvoiceModel {
-					InvoiceID = "Invoice6498",
-					From = "CDE Inc.",
-					Price = "$4450.21",
-					Date = "10 PM 07/07/2016"
-				}
-			};
-			PopulateList (invoicexModels);
-
 			NavigationPage.SetHasNavigationBar(this, false);
 		}
 
 		private void PopulateList(List<InvoiceModel> list)
 		{
 			var column = InvoiceRow;
-
 			column.Children.Clear ();
 
 			var invoiceItemTapGestureRecognizer = new TapGestureRecognizer();
-			invoiceItemTapGestureRecognizer.Tapped += OnProductTapped;
+			invoiceItemTapGestureRecognizer.Tapped += OnInvoiceTapped;
 
 			for (var i = 0; i < list.Count; i++) {
 				var item = new InvoiceItemTemplate();
@@ -48,27 +33,39 @@ namespace Smartdocs
 			}
 		}
 
-		private async void OnProductTapped(Object sender, EventArgs e) {
+		private async void OnInvoiceTapped(Object sender, EventArgs e) {
 
-			await Navigation.PushAsync (new InvoiceDetailPage ());
-
-			/*
-			var data = await App.G_HTTP_CLIENT.GetAllWorkItemsAsync ();
-
-			Xamarin.Forms.Device.BeginInvokeOnMainThread (() => {
-				Navigation.PushAsync (new InvoiceDetailPage ());
-			});
-			*/
+			var selectedItem = (InvoiceModel)((InvoiceItemTemplate)sender).BindingContext;
+			WorkItem viewItem = new WorkItem ();
+			foreach (WorkItem item in App.G_WORK_ITEMS) {
+				if (selectedItem.InvoiceID.Equals (item.workItemId)) {
+					viewItem = item;
+					break;
+				}
+			}
+			App.G_CURRENT_ACTIVE_ITEM = viewItem;
+			await Navigation.PushAsync ( new InvoiceDetailPage() );
 		}
 
 		protected async override void OnAppearing () {
-			
-//			var data = await App.G_HTTP_CLIENT.GetAllWorkItemsAsync ();
 
-			Xamarin.Forms.Device.BeginInvokeOnMainThread (() => {
+			App.G_WORK_ITEMS = new List<WorkItem> ();
+
+			App.G_WORK_ITEMS = await App.G_HTTP_CLIENT.GetAllWorkItemsAsync ();
+			List<InvoiceModel> invoiceModels = new List<InvoiceModel> ();
+
+			foreach (WorkItem item in App.G_WORK_ITEMS) {
 				
-//				PopulateList (invoicexModels);
-			});
+				InvoiceModel model = new InvoiceModel {
+					InvoiceID = item.workItemId,
+					From = item.headerData.Company_name,
+					Price = "$" + item.headerData.Budgeted_Amount,
+					Date = item.headerData.Date
+				};
+				invoiceModels.Add (model);
+			}
+
+			PopulateList (invoiceModels);
 		}
 	}
 }

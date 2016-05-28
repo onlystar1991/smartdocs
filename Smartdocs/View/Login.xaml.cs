@@ -4,6 +4,8 @@ using System.Diagnostics;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
+using System.Net.Http;
+using System.Net;
 
 namespace Smartdocs
 {
@@ -30,7 +32,9 @@ namespace Smartdocs
 		}
 
 		async void OnLoginButtonClicked(object sender, EventArgs args) {
+			
 			if (CheckValidate ()) {
+				
 				indicator.IsVisible = true;
 				((Button)sender).IsEnabled = false;
 
@@ -41,8 +45,8 @@ namespace Smartdocs
 					if (result == null) {
 						await DisplayAlert ("Error", "Can't connect server.", "Ok");
 					} else {
-						if (result.Equals("OK")) {
-							GotoHomePage();
+						if (result.StatusCode == HttpStatusCode.OK) {
+							GotoHomePage(result.Content.ReadAsStringAsync().Result);
 						} else {
 							await DisplayAlert ("Warning", "Bad credentials", "Ok");
 						}
@@ -62,8 +66,10 @@ namespace Smartdocs
 				return true;
 		}
 
-		async void GotoHomePage() {
+		async void GotoHomePage(string token) {
 			Application.Current.Properties["LoggedIn"] = "true";
+			Application.Current.Properties["token"] = token;
+			Constants.SECRET_TOKEN = token;
 			Navigation.InsertPageBefore (new RootPage (), this);
 			await Navigation.PopAsync ();
 		}

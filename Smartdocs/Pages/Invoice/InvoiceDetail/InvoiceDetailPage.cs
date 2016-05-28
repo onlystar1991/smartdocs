@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 
-
 namespace Smartdocs
 {
 	public class InvoiceDetailPage : ContentPage
@@ -21,8 +20,6 @@ namespace Smartdocs
 			_viewModel = new TabbedPageViewModel();
 			BindingContext = _viewModel;
 			BackgroundColor = Color.White;
-
-			Title = "Title";
 
 			_relativeLayout = new RelativeLayout
 			{
@@ -57,6 +54,7 @@ namespace Smartdocs
 				Orientation = StackOrientation.Horizontal,
 				VerticalOptions = LayoutOptions.Center,
 			};
+
 				Image togglMenuImage = new Image {
 					HorizontalOptions = LayoutOptions.Start,
 					VerticalOptions = LayoutOptions.Center,
@@ -155,5 +153,3 @@ namespace Smartdocs
 		}
 	}
 }
-
-

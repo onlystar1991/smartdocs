@@ -1,47 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Smartdocs.Models;
 
 namespace Smartdocs
 {
 	public class HttpHandler
 	{
-		System.Net.Http.HttpClient httpClient;
-		public List<WorkItemModel> WorkItems { get; private set; }
+		private HttpClient httpClient;
 
 		public HttpHandler ()
 		{
 			httpClient = new System.Net.Http.HttpClient ();
 		}
 
-		public async Task<WorkItemModel[]> GetAllWorkItemsAsync()
+		public async Task<List<WorkItem>> GetAllWorkItemsAsync()
 		{
-			var url = new Uri (Constants.SERVER + "getworkitemdatalist/admin");
+			try {
 
-			httpClient.DefaultRequestHeaders.Add ("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NjQ3MTMxNTAsInN1YiI6InNlY3VyZXJlc3RhcGkiLCJpc3MiOiJzbWFydGRvY3MtbXl0cmFoIiwiaWF0IjoxNDYzNTAzNTUwfQ.UOoLQ2wEYDKJEcoh8insw0DgxloR8BGqqj3jRbWkQAg");
+				httpClient.BaseAddress = new Uri(Constants.SERVER);
+				httpClient.DefaultRequestHeaders.Clear();
+				httpClient.DefaultRequestHeaders.Add ("Authorization", "Bearer " + Constants.SECRET_TOKEN);
 
-			var response = await httpClient.GetAsync (url);
+				HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "rest/api/getworkitemdatalist/admin");
 
-			var content = response.Content.ReadAsStringAsync ().Result;
+				var response = await httpClient.SendAsync(request);
 
-			dynamic dynObj = JsonConvert.DeserializeObject(content);
+				string result = "";
 
-			foreach (JToken obj in dynObj) {
-				Debug.WriteLine (obj);
+				List<WorkItem> workItemList = new List<WorkItem>();
+
+				if (response.StatusCode == HttpStatusCode.OK) {
+					result = response.Content.ReadAsStringAsync ().Result;
+
+					JToken jsonArray = JValue.Parse(result);
+
+					foreach (var json in jsonArray) {
+						WorkItem tmp = JsonConvert.DeserializeObject<WorkItem>(json.ToString());
+						workItemList.Add(tmp);
+					}
+				}
+
+				return workItemList;
+			} catch (Exception ex) {
+				Debug.WriteLine (ex.ToString ());
+				return null;
 			}
-
-			var model = JsonConvert.DeserializeObject<WorkListObject> (content);
-
-			return model.workItems;
 		}
 
-		public async Task<String> LoginAsync(string username, string password)
+		public async Task<HttpResponseMessage> LoginAsync(string username, string password)
 		{
 			try {
 				httpClient.BaseAddress = new Uri(Constants.SERVER);
@@ -56,7 +70,7 @@ namespace Smartdocs
 
 				var response = await httpClient.SendAsync(request);
 
-				return response.StatusCode.ToString();
+				return response;
 			
 			} catch(Exception ex) {
 				Debug.WriteLine (ex.ToString ());

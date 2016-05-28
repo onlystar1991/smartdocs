@@ -10,6 +10,6 @@ namespace Smartdocs
 
 		public static string SERVER = "http://130.211.130.79:8080/";
 		public static string LOGIN_API = "rest/authentication/getToken";
-
+		public static string SECRET_TOKEN { get; set; }
 	}
 }

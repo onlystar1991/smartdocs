@@ -4,56 +4,56 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	xmlns:local="clr-namespace:Smartdocs;assembly=Smartdocs"
 	x:Class="Smartdocs.InvoicePage" >
-	<StackLayout>
-		<local:MainHeader />
-		<StackLayout Orientation="Horizontal" Padding="10, 0">
-			<StackLayout Orientation="Horizontal" Padding="0, 0" >
-				<Grid>
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="*" />
-						<ColumnDefinition Width="*" />
-						<ColumnDefinition Width="*" />
-						<ColumnDefinition Width="Auto" />
-					</Grid.ColumnDefinitions>
-					<StackLayout Grid.Column="0" Orientation="Horizontal"  HorizontalOptions="Center">
-						<Image Source="invoices.png" WidthRequest="22" HeightRequest="22" />
-						<Label Text="INVOICES" TextColor="#0d73a2" FontSize="12" VerticalOptions="Center" />
-					</StackLayout>
-					<StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="Center">
-						<Image Source="pos.png" WidthRequest="22" HeightRequest="22"/>
-						<Label Text="POs" TextColor="Gray" FontSize="13" VerticalOptions="Center" />
-					</StackLayout>
-					<StackLayout Grid.Column="2" Orientation="Horizontal" HorizontalOptions="Center">
-						<Image Source="prs.png" WidthRequest="22" HeightRequest="22"/>
-						<Label Text="PRs" TextColor="Gray" FontSize="13" VerticalOptions="Center" />
-					</StackLayout>
-					<StackLayout Grid.Column="3" Orientation="Horizontal" >
-						<Image Source="more.png" WidthRequest="22" HeightRequest="22" />
-					</StackLayout>
-				</Grid>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
 
-			</StackLayout>
+		<StackLayout HeightRequest="77" Grid.Row="0">
+			<local:MainHeader />
 		</StackLayout>
-
-		<StackLayout Style="{StaticResource MainPageStyle}">
+		<StackLayout HeightRequest="30" Orientation="Horizontal" Grid.Row="1" Padding="10, 0" VerticalOptions="Fill" >
 			<Grid>
-				<StackLayout>
-					<ScrollView>
-						<Grid Padding="20" ColumnSpacing="10" >
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="*" />
-							</Grid.ColumnDefinitions>
-
-							<!---Left Column Content -->
-							<StackLayout 
-								x:Name="InvoiceRow"
-								Grid.Column="0"
-								>
-							</StackLayout>
-						</Grid>
-					</ScrollView>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<StackLayout Grid.Column="0" Orientation="Horizontal"  HorizontalOptions="Center">
+					<Image Source="invoices.png" WidthRequest="22" HeightRequest="22" />
+					<Label Text="INVOICES" TextColor="#0d73a2" FontSize="12" VerticalOptions="Center" />
+				</StackLayout>
+				<StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="Center">
+					<Image Source="pos.png" WidthRequest="22" HeightRequest="22"/>
+					<Label Text="POs" TextColor="Gray" FontSize="13" VerticalOptions="Center" />
+				</StackLayout>
+				<StackLayout Grid.Column="2" Orientation="Horizontal" HorizontalOptions="Center">
+					<Image Source="prs.png" WidthRequest="22" HeightRequest="22"/>
+					<Label Text="PRs" TextColor="Gray" FontSize="13" VerticalOptions="Center" />
+				</StackLayout>
+				<StackLayout Grid.Column="3" Orientation="Horizontal" >
+					<Image Source="more.png" WidthRequest="22" HeightRequest="22" />
 				</StackLayout>
 			</Grid>
 		</StackLayout>
-	</StackLayout>
+
+		<ScrollView Grid.Row="2" BackgroundColor="#f2f9fc" VerticalOptions="FillAndExpand">
+			<Grid Padding="20" ColumnSpacing="10" >
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<!---Left Column Content -->
+				<StackLayout 
+					x:Name="InvoiceRow"
+					Grid.Column="0"
+					>
+				</StackLayout>
+			</Grid>
+		</ScrollView>
+
+	</Grid>
 </ContentPage>

@@ -55,7 +55,6 @@
     <Compile Include="View\RootPage.xaml.cs">
       <DependentUpon>RootPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\NavigationService.cs" />
     <Compile Include="ViewModel\MasterPageItem.cs" />
     <Compile Include="View\MasterMenuPage.xaml.cs">
       <DependentUpon>MasterMenuPage.xaml</DependentUpon>
@@ -220,7 +219,6 @@
     <Folder Include="Network\" />
     <Folder Include="View\" />
     <Folder Include="Pages\" />
-    <Folder Include="Helpers\" />
     <Folder Include="ViewModel\" />
     <Folder Include="Pages\Inbox\" />
     <Folder Include="Pages\Outbox\" />
