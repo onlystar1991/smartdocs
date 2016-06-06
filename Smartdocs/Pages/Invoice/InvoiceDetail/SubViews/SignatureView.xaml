@@ -12,7 +12,6 @@
                 x:Name="padView"
                 HeightRequest="320"
                 WidthRequest="240"
-            
                 BackgroundColor="White"
                 CaptionText="Caption This"
                 CaptionTextColor="Black"
@@ -24,8 +23,6 @@
                 StrokeColor="Black"
                 StrokeWidth="2"
             />
-            
-            <Button Text="Change Theme" />
         </StackLayout>
     </ScrollView>
 </ContentView>

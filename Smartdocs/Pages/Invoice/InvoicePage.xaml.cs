@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
-
 using Xamarin.Forms;
 using Smartdocs.Models;
 
@@ -31,6 +30,8 @@ namespace Smartdocs
 				item.GestureRecognizers.Add (invoiceItemTapGestureRecognizer);
 				column.Children.Add( item );
 			}
+
+			actIndicator2.IsRunning = false;
 		}
 
 		private async void OnInvoiceTapped(Object sender, EventArgs e) {
@@ -50,17 +51,28 @@ namespace Smartdocs
 		protected async override void OnAppearing () {
 
 			App.G_WORK_ITEMS = new List<WorkItem> ();
+			actIndicator2.IsRunning = true;
 
 			App.G_WORK_ITEMS = await App.G_HTTP_CLIENT.GetAllWorkItemsAsync ();
 			List<InvoiceModel> invoiceModels = new List<InvoiceModel> ();
 
 			foreach (WorkItem item in App.G_WORK_ITEMS) {
-				
+
+				string date = "";
+				if (!String.IsNullOrEmpty (item.headerData.Date)) {
+					date = item.headerData.Date.Substring (0, 4) + "/" + item.headerData.Date.Substring (4, 2) + "/" + item.headerData.Date.Substring (6, 2);
+				}
+
+				string budget = "";
+				if (!String.IsNullOrEmpty (item.headerData.Budgeted_Amount)) {
+					budget = "$" + item.headerData.Budgeted_Amount;
+				}
+
 				InvoiceModel model = new InvoiceModel {
 					InvoiceID = item.workItemId,
 					From = item.headerData.Company_name,
-					Price = "$" + item.headerData.Budgeted_Amount,
-					Date = item.headerData.Date
+					Price = budget,
+					Date = date
 				};
 				invoiceModels.Add (model);
 			}

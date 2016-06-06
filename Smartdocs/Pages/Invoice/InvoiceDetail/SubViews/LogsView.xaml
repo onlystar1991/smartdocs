@@ -5,7 +5,14 @@
 	x:Class="Smartdocs.LogsView"
 	BackgroundColor="#f2f9fc"
 	>
-	<StackLayout>
-		
-	</StackLayout>
+	<ScrollView>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+		</Grid>
+	</ScrollView>
 </ContentView>
